@@ -18,7 +18,7 @@ requirements:
   host:
     - python
     - pip
-    - uv_build
+    - uv-build
   run:
     - python
     - anyio >=4.0,<5.0
