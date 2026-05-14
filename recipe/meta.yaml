@@ -18,7 +18,6 @@ requirements:
   host:
     - python
     - pip
-    - hatchling
     - uv_build
   run:
     - python
@@ -35,8 +34,8 @@ test:
     - pytest -v tests
   requires:
     - pip
-    - pytest
-    - trio
+    - pytest >=9,<10
+    - trio >=0.32.0,<1
 
 about:
   home: https://github.com/davidbrochart/sqlite-anyio
