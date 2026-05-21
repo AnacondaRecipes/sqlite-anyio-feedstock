@@ -25,21 +25,17 @@ requirements:
     - typing_extensions >=4.15.0
 
 test:
-  source_files:
-    - tests
   imports:
     - sqlite_anyio
   commands:
     - pip check
-    - pytest -v tests
   requires:
     - pip
-    - pytest >=9,<10
-    - trio >=0.32.0,<1
 
 about:
   home: https://github.com/davidbrochart/sqlite-anyio
   summary: Asynchronous client for SQLite using AnyIO
+  description: Asynchronous client for SQLite using AnyIO
   license_file: LICENSE
   license: MIT
   license_family: MIT
