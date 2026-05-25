@@ -1,5 +1,5 @@
 {% set name = "sqlite-anyio" %}
-{% set version = "0.2.3" %}
+{% set version = "0.2.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,38 +7,35 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 12a8b0ececaa63d70d5cc5f91edbd932fc1eca9da70ebce2b31d3a199767b3d3
+  sha256: d68b51a18c01a7dfa9cedbc319871ce77ab3ed0822518fb32810bb465b52d761
 
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  skip: True  # [py<38]
+  skip: true  # [py<310]
 
 requirements:
   host:
     - python
     - pip
-    - hatchling
+    - uv-build
   run:
     - python
     - anyio >=4.0,<5.0
+    - typing_extensions >=4.15.0
 
 test:
-  source_files:
-    - tests
   imports:
     - sqlite_anyio
   commands:
     - pip check
-    - pytest -v tests
   requires:
     - pip
-    - pytest
-    - trio
 
 about:
   home: https://github.com/davidbrochart/sqlite-anyio
   summary: Asynchronous client for SQLite using AnyIO
+  description: Asynchronous client for SQLite using AnyIO
   license_file: LICENSE
   license: MIT
   license_family: MIT
